@@ -1,0 +1,16 @@
+<div *ngIf="ready()">
+    <div menu-container *ngFor="let item of items | async">
+        <div menu-item (click)="handleMenuItem(item)">
+            <mat-icon *ngIf="item.state === undefined"></mat-icon>
+            <mat-icon *ngIf="item.state === 'closed'">expand_less</mat-icon>
+            <mat-icon *ngIf="item.state === 'opened'">expand_more</mat-icon>
+            <span>{{item.label}}</span>
+        </div>
+        <div menu-container *ngIf="item.items" [@menuToggle]="item.state">
+            <div menu-item *ngFor="let childItem of item.items">
+                <mat-icon></mat-icon>
+                <span>{{childItem.label}}</span>
+            </div>
+        </div>
+    </div>
+</div>

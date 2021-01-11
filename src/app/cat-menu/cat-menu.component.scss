@@ -1,0 +1,21 @@
+
+.mat-icon {
+    vertical-align: middle;
+}
+
+[menu-container] {
+    //background: rgba(255,0,0,0.5);
+    cursor: default;
+    margin-left: 0.5rem;
+    overflow: auto;
+    height: auto;
+
+    [menu-item] {
+        //background: rgba(0,255,0,0.5);
+        cursor: default;
+        margin-left: 0.5rem;
+        vertical-align: middle;
+        line-height: 1.25rem;
+        overflow: auto;
+    }
+}
