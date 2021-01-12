@@ -56,21 +56,23 @@
 <!--    </div>-->
 
 <!--</mat-nav-list>-->
-
-<mat-nav-list>
-    <ng-container *ngFor="let item of items">
-        <mat-list-item (click)="toggleSubMenu(item)">
-            <mat-icon mat-list-icon>
-                <ng-container *ngIf="item.items;else noItems">
-                    <ng-container *ngIf="item.expanded">expand_less</ng-container>
-                    <ng-container *ngIf="!item.expanded">expand_more</ng-container>
-                </ng-container>
-                <ng-template #noItems>{{item.icon}}</ng-template>
-            </mat-icon>
-            <div mat-line>{{item.label}}</div>
-        </mat-list-item>
-        <ng-container *ngIf="item.items">
-            <app-nav-menu sub-menu [items]="item.items" [ngClass]="item.expanded ? 'sub-menu-opened' : 'sub-menu-closed'"></app-nav-menu>
+<div layout-root>
+    <mat-nav-list dense>
+        <ng-container *ngFor="let item of items">
+            <mat-list-item (click)="toggleSubMenu(item)">
+                <mat-icon mat-list-icon>
+                    <ng-container *ngIf="item.items;else noItems">
+                        <ng-container *ngIf="item.expanded">expand_less</ng-container>
+                        <ng-container *ngIf="!item.expanded">expand_more</ng-container>
+                    </ng-container>
+                    <ng-template #noItems>{{item.icon}}</ng-template>
+                </mat-icon>
+                <div mat-line [ngClass]="item.items ? 'menu-heading' : 'menu-item'">{{item.label}}</div>
+            </mat-list-item>
+            <ng-container *ngIf="item.items">
+                <app-nav-menu sub-menu [items]="item.items"
+                              [ngClass]="item.expanded ? 'sub-menu-opened' : 'sub-menu-closed'"></app-nav-menu>
+            </ng-container>
         </ng-container>
-    </ng-container>
-</mat-nav-list>
+    </mat-nav-list>
+</div>

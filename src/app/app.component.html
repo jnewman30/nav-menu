@@ -1,2 +1,8 @@
 
-<app-nav-menu></app-nav-menu>
+<button mat-button (click)="navMenu.expandAllItems()">
+    <mat-icon>add_circle</mat-icon>
+</button>
+<button mat-button (click)="navMenu.collapseAllItems()">
+    <mat-icon>remove_circle</mat-icon>
+</button>
+<app-nav-menu #navMenu [items]="menuItems"></app-nav-menu>

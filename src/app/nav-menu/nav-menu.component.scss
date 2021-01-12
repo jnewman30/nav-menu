@@ -1,11 +1,30 @@
 
-[sub-menu] {
-    margin-left: 1rem;
+:host(app-nav-menu) {
+    mat-nav-list {
+        padding: 0;
+    }
 }
 
-.sub-menu-opened {
-    display: block;
-}
-.sub-menu-closed {
-    display: none;
+[layout-root] {
+    overflow: hidden;
+
+    [sub-menu] {
+        padding-left: 1rem;
+    }
+
+    .sub-menu-opened {
+        display: block;
+    }
+
+    .sub-menu-closed {
+        display: none;
+    }
+
+    .menu-heading {
+        font-size: 1.2em;
+    }
+
+    .menu-item {
+        font-size: 1em;
+    }
 }
