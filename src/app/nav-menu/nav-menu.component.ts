@@ -1,10 +1,27 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NavMenuItem} from './nav-menu-item';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
     selector: 'app-nav-menu',
     templateUrl: './nav-menu.component.html',
-    styleUrls: ['./nav-menu.component.scss']
+    styleUrls: ['./nav-menu.component.scss'],
+    animations: [
+        trigger('menuToggle', [
+            state('true', style({
+                'max-height': '3000px'
+            })),
+            state('false', style({
+                'max-height': '0px'
+            })),
+            transition('* => true', [
+                animate('1s')
+            ]),
+            transition('* => false', [
+                animate('1s')
+            ])
+        ])
+    ]
 })
 export class NavMenuComponent implements OnInit {
 
@@ -30,11 +47,15 @@ export class NavMenuComponent implements OnInit {
     }
 
     public expandAllItems(): void {
-        this.iterateAllItems(this.items, item => item.expanded = true);
+        this.iterateAllItems(this.items, item => {
+            item.expanded = true;
+        });
     }
 
     public collapseAllItems(): void {
-        this.iterateAllItems(this.items, item => item.expanded = false);
+        this.iterateAllItems(this.items, item => {
+            item.expanded = false;
+        });
     }
 
     public iterateAllItems(items: NavMenuItem[], action: (item: NavMenuItem) => void): void {

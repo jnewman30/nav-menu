@@ -71,6 +71,7 @@
             </mat-list-item>
             <ng-container *ngIf="item.items">
                 <app-nav-menu sub-menu [items]="item.items"
+                              [@menuToggle]="item.expanded"
                               [ngClass]="item.expanded ? 'sub-menu-opened' : 'sub-menu-closed'"></app-nav-menu>
             </ng-container>
         </ng-container>
