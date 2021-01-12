@@ -5,18 +5,22 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
+import {NavMenuComponent} from './nav-menu/nav-menu.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        NavMenuComponent
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         AppRoutingModule,
         MatButtonModule,
-        MatListModule
+        MatListModule,
+        MatIconModule
     ],
     providers: [],
     bootstrap: [AppComponent]

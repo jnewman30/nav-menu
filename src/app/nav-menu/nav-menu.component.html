@@ -1,0 +1,76 @@
+<!--<mat-nav-list>-->
+<!--    <mat-list-item>-->
+<!--        <mat-icon matListIcon>folder</mat-icon>-->
+<!--        <div mat-line>Home</div>-->
+<!--    </mat-list-item>-->
+<!--    <mat-list-item>-->
+<!--        <mat-icon matListIcon>folder</mat-icon>-->
+<!--        <div mat-line>Inbox</div>-->
+<!--    </mat-list-item>-->
+<!--    <mat-list-item>-->
+<!--        <mat-icon matListIcon>folder</mat-icon>-->
+<!--        <div mat-line>Find Documents</div>-->
+<!--    </mat-list-item>-->
+<!--    <mat-list-item (click)="toggleSubMenu(adminMenu)">-->
+<!--        <mat-icon matListIcon>folder</mat-icon>-->
+<!--        <div mat-line>Administration</div>-->
+<!--    </mat-list-item>-->
+
+<!--    <div mat-nav-list #adminMenu [style]="{'display': 'none', 'margin-left': '2rem' }">-->
+<!--        <mat-list-item>-->
+<!--            <mat-icon matListIcon>folder</mat-icon>-->
+<!--            <div mat-line>Entity Settings</div>-->
+<!--        </mat-list-item>-->
+<!--        <mat-list-item>-->
+<!--            <mat-icon matListIcon>folder</mat-icon>-->
+<!--            <div mat-line>Role Management</div>-->
+<!--        </mat-list-item>-->
+<!--        <mat-list-item>-->
+<!--            <mat-icon matListIcon>folder</mat-icon>-->
+<!--            <div mat-line>Process Manager</div>-->
+<!--        </mat-list-item>-->
+<!--    </div>-->
+
+<!--    <mat-list-item (click)="toggleSubMenu(workflowMenu)">-->
+<!--        <mat-icon matListIcon>folder</mat-icon>-->
+<!--        <div mat-line>Workflow</div>-->
+<!--    </mat-list-item>-->
+
+<!--    <div mat-nav-list #workflowMenu [style]="{'display': 'none', 'margin-left': '2rem' }">-->
+<!--        <mat-list-item>-->
+<!--            <mat-icon matListIcon>folder</mat-icon>-->
+<!--            <div mat-line>Workflow 1</div>-->
+<!--        </mat-list-item>-->
+<!--        <mat-list-item>-->
+<!--            <mat-icon matListIcon>folder</mat-icon>-->
+<!--            <div mat-line>Workflow 2</div>-->
+<!--        </mat-list-item>-->
+<!--        <mat-list-item>-->
+<!--            <mat-icon matListIcon>folder</mat-icon>-->
+<!--            <div mat-line>Workflow 3</div>-->
+<!--        </mat-list-item>-->
+<!--        <mat-list-item>-->
+<!--            <mat-icon matListIcon>folder</mat-icon>-->
+<!--            <div mat-line>Workflow 4</div>-->
+<!--        </mat-list-item>-->
+<!--    </div>-->
+
+<!--</mat-nav-list>-->
+
+<mat-nav-list>
+    <ng-container *ngFor="let item of items">
+        <mat-list-item (click)="toggleSubMenu(item)">
+            <mat-icon mat-list-icon>
+                <ng-container *ngIf="item.items;else noItems">
+                    <ng-container *ngIf="item.expanded">expand_less</ng-container>
+                    <ng-container *ngIf="!item.expanded">expand_more</ng-container>
+                </ng-container>
+                <ng-template #noItems>{{item.icon}}</ng-template>
+            </mat-icon>
+            <div mat-line>{{item.label}}</div>
+        </mat-list-item>
+        <ng-container *ngIf="item.items">
+            <app-nav-menu sub-menu [items]="item.items" [ngClass]="item.expanded ? 'sub-menu-opened' : 'sub-menu-closed'"></app-nav-menu>
+        </ng-container>
+    </ng-container>
+</mat-nav-list>
