@@ -5,4 +5,5 @@ export interface NavMenuItem {
     data?: any;
     expanded?: boolean;
     items?: NavMenuItem[];
+    action?: (item: NavMenuItem) => void;
 }

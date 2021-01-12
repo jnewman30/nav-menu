@@ -59,7 +59,7 @@
 <div layout-root>
     <mat-nav-list dense>
         <ng-container *ngFor="let item of items">
-            <mat-list-item (click)="toggleSubMenu(item)">
+            <mat-list-item (click)="menuAction(item)">
                 <mat-icon mat-list-icon>
                     <ng-container *ngIf="item.items;else noItems">
                         <ng-container *ngIf="item.expanded">expand_less</ng-container>

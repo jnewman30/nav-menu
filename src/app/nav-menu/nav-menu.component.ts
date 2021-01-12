@@ -16,6 +16,15 @@ export class NavMenuComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    menuAction(item: NavMenuItem): void {
+        if (item.items) {
+            this.toggleSubMenu(item);
+        }
+        if (item.action) {
+            item.action(item);
+        }
+    }
+
     public toggleSubMenu(item: NavMenuItem): void {
         item.expanded = !item.expanded;
     }

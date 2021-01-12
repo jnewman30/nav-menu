@@ -11,11 +11,13 @@ export class AppComponent implements OnInit {
     menuItems: NavMenuItem[] = [
         {
             label: 'Home',
-            icon: 'home'
+            icon: 'home',
+            action: this.testMenuAction
         },
         {
             label: 'Inbox',
-            icon: 'inbox'
+            icon: 'inbox',
+            action: this.testMenuAction
         },
         {
             label: 'Administration',
@@ -29,25 +31,30 @@ export class AppComponent implements OnInit {
                     items: [
                         {
                             label: 'Properties',
-                            icon: 'list'
+                            icon: 'list',
+                            action: this.testMenuAction
                         },
                         {
                             label: 'Email Templates',
-                            icon: 'list'
+                            icon: 'list',
+                            action: this.testMenuAction
                         }
                     ]
                 },
                 {
                     label: 'Mobile Scan Settings',
-                    icon: 'list'
+                    icon: 'list',
+                    action: this.testMenuAction
                 },
                 {
                     label: 'Role Management',
-                    icon: 'list'
+                    icon: 'list',
+                    action: this.testMenuAction
                 },
                 {
                     label: 'Process Manager',
-                    icon: 'list'
+                    icon: 'list',
+                    action: this.testMenuAction
                 }
             ]
         },
@@ -59,28 +66,62 @@ export class AppComponent implements OnInit {
                 {
                     label: 'Accounting',
                     items: [
-                        {label: 'Workflow 1', icon: 'list'},
-                        {label: 'Workflow 2', icon: 'list'},
-                        {label: 'Workflow 3', icon: 'list'},
-                        {label: 'Workflow 4', icon: 'list'}
+                        {
+                            label: 'Workflow 1',
+                            icon: 'list',
+                            action: this.testMenuAction
+                        },
+                        {
+                            label: 'Workflow 2',
+                            icon: 'list',
+                            action: this.testMenuAction
+                        },
+                        {
+                            label: 'Workflow 3',
+                            icon: 'list',
+                            action: this.testMenuAction
+                        },
+                        {
+                            label: 'Workflow 4',
+                            icon: 'list',
+                            action: this.testMenuAction
+                        }
                     ]
                 },
                 {
                     label: 'Human Resources',
                     items: [
-                        {label: 'Workflow 5', icon: 'list'},
-                        {label: 'Workflow 6', icon: 'list'},
-                        {label: 'Workflow 7', icon: 'list'},
-                        {label: 'Workflow 8', icon: 'list'}
+                        {
+                            label: 'Workflow 5',
+                            icon: 'list',
+                            action: this.testMenuAction
+                        },
+                        {
+                            label: 'Workflow 6',
+                            icon: 'list',
+                            action: this.testMenuAction
+                        },
+                        {
+                            label: 'Workflow 7',
+                            icon: 'list',
+                            action: this.testMenuAction
+                        },
+                        {
+                            label: 'Workflow 8',
+                            icon: 'list',
+                            action: this.testMenuAction
+                        }
                     ]
                 },
                 {
                     label: 'Workflow 9',
-                    icon: 'list'
+                    icon: 'list',
+                    action: this.testMenuAction
                 },
                 {
                     label: 'Workflow 10',
-                    icon: 'list'
+                    icon: 'list',
+                    action: this.testMenuAction
                 }
             ]
         }
@@ -90,5 +131,9 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
+    }
+
+    testMenuAction(item: NavMenuItem): void {
+        console.log('action', item.label);
     }
 }
